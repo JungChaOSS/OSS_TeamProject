@@ -1,5 +1,23 @@
 # OSS_TeamProject
 
+---
+## mini project 주제
+
+편리한 계산서 프로그램
+
+---
+## mini project에 대한 소개
+
+![Alt text](https://user-images.githubusercontent.com/84870285/166147253-33b32765-5bc6-4c72-b8b4-589a3f612c24.jpeg)
+![Alt text](https://user-images.githubusercontent.com/84870285/166147314-a19301f8-3119-45a9-9f96-24a82af322d5.jpeg)
+
+고객들은 오프라인 마트에서 물건을 구매하고 필요에 따라서 생수와 같은 무거운 물건들을 배송으로 맡기기도 한다. 
+
+그리고 자신의 소비패턴을 확인하기 위해서 계산서를 확인하기도 한다. 
+
+따라서 우리는 고객이 더욱 편리하고 유익하게 소비생활을 할 수 있도록 배송신청 유무를 확인할 수 있고 
+
+구매한 제품들의 가격대를 분류해서 쉽게 확인할 수 있는 계산서 프로그램을 구현할 것이다.
 ___
 ## mini project 가 가지고 있는 대략적인 기능 설명
 
