@@ -18,6 +18,33 @@ int selectMenu(){
   	getchar();
 	return menu;
 }
+int updateProduct(Product *p){
+    printf("상품 이름은? ");
+    getchar();
+    fgets(p->proName, SIZE, stdin);
+    printf("가격은? ");
+    scanf("%d", &p->price);
+    printf("개수는? ");
+    scanf("%d", &p->quant);
+    printf("배달 유무 선택 (1: 배달 O, 0: 배달 X) : ");
+    scanf("%d", &p->deliver);
+    return 1;
+}
+
+
+int deleteProduct(Product *p){
+    p->price = -1;
+    printf("=>삭제됨\n");
+    return 1;
+}
+
+int selectDataNo(Product *p, int count){
+    int no;
+    listProduct(p, count);
+    printf("원하는 번호는(취소:0)? ");
+    scanf("%d",&no);
+    return no;
+}
 
 void listProduct(Product *p, int count) {
 	printf("No Name Price quantity Delivery \n");
