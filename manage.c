@@ -18,3 +18,31 @@ int selectMenu(){
   	getchar();
 	return menu;
 }
+
+void listProduct(Product *p, int count) {
+	printf("No Name Price quantity Delivery \n");
+    for(int i = 0; i < count; i++) {
+        if(p[i].price == -1) continue;
+        printf("%2d ", i+1);
+        readProduct(p[i]);
+    }
+}
+int createProduct(Product *p) {
+	printf("상품 이름은? ");
+    getchar();
+    fgets(p->proName, SIZE, stdin);
+    //scanf("%[^\n]s", s->name);
+    
+    printf("가격은? ");
+    scanf("%d", &p->price);
+    
+    printf("개수는? ");
+    scanf("%d", &p->quant);
+
+	printf("배달 유무 선택 (1: 배달 O, 0: 배달 X) : ");
+    scanf("%d", &p->deliver);
+    return 1;   
+}
+void readProduct(Product p) {
+	printf("%s %d %d %d\n", p.proName, p.price, p.quant, p.deliver);
+}
