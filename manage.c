@@ -20,8 +20,8 @@ int selectMenu(){
 }
 int updateProduct(Product *p){
     printf("상품 이름은? ");
-    getchar();
-    fgets(p->proName, SIZE, stdin);
+    //fgets(p->proName, SIZE, stdin);
+    scanf("%[^\n]s", p->proName);
     printf("가격은? ");
     scanf("%d", &p->price);
     printf("개수는? ");
