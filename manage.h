@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#define SIZE 20
+
 typedef struct {
   char proName[100];
   int price;
