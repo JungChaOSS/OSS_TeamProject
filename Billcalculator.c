@@ -18,7 +18,7 @@ int main(void){
             if(count>0){listProduct(plist,indexcount);}
             else{printf("데이터가 없습니다\n");}
         }
-        else if (menu == 2){count+=addProduct(&plist[indexcount++]);}
+        else if (menu == 2){count+=createProduct(&plist[indexcount++]);}
         else if (menu == 3){
             int no = selectDataNo(plist, indexcount);
             if(no <= 0){
@@ -38,12 +38,12 @@ int main(void){
             scanf("%d",&deletecheck);
             if(deletecheck == 1){count-=deleteProduct(&plist[no-1]);}
         }
-        else if(menu == 5){
-            saveData(plist,indexcount);
-            }
-		else if(menu == 6){
-            searchName(plist,indexcount);
-            }
+        // else if(menu == 5){
+        //     saveData(plist,indexcount);
+        //     }
+		// else if(menu == 6){
+        //     searchName(plist,indexcount);
+        //     }
     }
     printf("종료됨!\n");
     return 0;

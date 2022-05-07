@@ -56,10 +56,11 @@ void listProduct(Product *p, int count) {
 }
 int createProduct(Product *p) {
 	printf("상품 이름은? ");
-    getchar();
+    //getchar();
     fgets(p->proName, SIZE, stdin);
     //scanf("%[^\n]s", s->name);
-    
+    //getchar();
+
     printf("가격은? ");
     scanf("%d", &p->price);
     
