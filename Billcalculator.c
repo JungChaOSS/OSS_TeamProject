@@ -2,7 +2,6 @@
 #include <string.h>
 #include "manage.h"
 
-
 int main(void){
     Product plist[20];
     int indexcount = 0;
