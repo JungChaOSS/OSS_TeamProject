@@ -20,7 +20,6 @@ int selectMenu(){
 }
 int updateProduct(Product *p){
     printf("상품 이름은? ");
-    //fgets(p->proName, SIZE, stdin);
     scanf("%[^\n]s", p->proName);
     printf("가격은? ");
     scanf("%d", &p->price);
@@ -48,18 +47,16 @@ int selectDataNo(Product *p, int count){
 
 void listProduct(Product *p, int count) {
 	printf("No Name Price quantity Delivery \n");
-    for(int i = 0; i < count; i++) {
-        if(p[i].price == -1) continue;
-        printf("%2d ", i+1);
-        readProduct(p[i]);
-    }
+	for(int i = 0; i < count; i++) {
+		if(p[i].price == -1) continue;
+		printf("%2d ", i+1);
+        	readProduct(p[i]);
+    	}
 }
 int createProduct(Product *p) {
-	printf("상품 이름은? ");
-    //getchar();
-    //fgets(p->proName, SIZE, stdin);
+    printf("상품 이름은? ");
     scanf("%[^\n]s", p->proName);
-    //getchar();
+
 
     printf("가격은? ");
     scanf("%d", &p->price);
@@ -67,10 +64,18 @@ int createProduct(Product *p) {
     printf("개수는? ");
     scanf("%d", &p->quant);
 
-	printf("배달 유무 선택 (1: 배달 O, 0: 배달 X) : ");
+    printf("배달 유무 선택 (1: 배달 O, 0: 배달 X) : ");
     scanf("%d", &p->deliver);
     return 1;   
 }
 void readProduct(Product p) {
 	printf("%s %d %d %d\n", p.proName, p.price, p.quant, p.deliver);
 }
+
+
+void searchAscendingPrice(Product *p, int count); // 제품 값을 오름차순으로 정렬해 검색한다
+void checkDeliever(Product *p, int count); // 배달 유무로 분류해 출력한다
+void saveData(Product *p, int count); //파일에 데이터를 저장한다
+int loadData(Product *p); //파일에서 데이터를 불러온다
+void searchName(Product *p, int count); //제품을 검색한다
+
