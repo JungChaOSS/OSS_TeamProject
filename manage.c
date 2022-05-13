@@ -96,9 +96,9 @@ int loadData(Product *p){
 	}
 	for(;i < 100; i++){
 		fscanf(fp,"%s",p[i].proName);
-        fscanf(fp,"%d",p[i].price);
+        fscanf(fp,"%d",&p[i].price);
 		if(feof(fp))break;
-		fscanf(fp, "%d",p[i].quant);
+		fscanf(fp, "%d",&p[i].quant);
 		fscanf(fp, "%d",&p[i].deliver);
 	}
 	fclose(fp);
