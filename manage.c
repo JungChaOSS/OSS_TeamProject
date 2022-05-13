@@ -12,6 +12,7 @@ int selectMenu(){
 	printf("5. 저장\n");
 	printf("6. 배송 유무 검색\n");
 	printf("7. 가격 정렬(오름차순) 검색\n");
+	printf("8. 제품 검색\n");
 	printf("0. 종료\n\n");
 	printf("=> 원하는 메뉴는? ");
 	scanf("%d", &menu);
@@ -104,3 +105,48 @@ int loadData(Product *p){
 	return i;
 }
 
+void searchAscendingPrice(Product *p, int count) {
+	int i, j, min;
+    Product temp;
+    for(i = 0; i < count; i++) {
+        min = i;
+        for(j = i + 1; j < count; j++)
+            if(p[j].price < p[min].price)
+                min = j;
+        
+        temp = p[i];
+        p[i] = p[min];
+        p[min] = temp;
+    }
+}
+void checkDeliever(Product *p, int count) {
+	int i;
+	for(i = 0; i < count; i++) {
+		if(p[i].deliver == 1) {
+			readProduct(p[i]);
+		}
+	}
+	for(i = 0; i < count; i++) {
+		if(p[i].deliver == 0) {
+			readProduct(p[i]);
+		}
+	}
+}
+void searchName(Product *p, int count) {
+	int scount = 0;
+    char search[SIZE];
+
+    printf("검색할 이름? ");
+    scanf("%s", search);
+
+    printf("==============================\n");
+    for(int i = 0; i < count; i++) {
+        if(p[i].price == -1) continue;
+        if(strstr(p[i].proName, search)) {
+            printf("%2d", i + 1);
+            readProduct(p[i]);
+            scount++;
+        }
+    }
+    if(scount == 0) printf("=> 검색된 데이터 없음!/n");
+}
