@@ -73,9 +73,34 @@ void readProduct(Product p) {
 }
 
 
-void searchAscendingPrice(Product *p, int count); // 제품 값을 오름차순으로 정렬해 검색한다
-void checkDeliever(Product *p, int count); // 배달 유무로 분류해 출력한다
-void saveData(Product *p, int count); //파일에 데이터를 저장한다
-int loadData(Product *p); //파일에서 데이터를 불러온다
-void searchName(Product *p, int count); //제품을 검색한다
+void saveData(Product *p, int count){
+	FILE *fp;
+	fp = fopen("product.txt","wt");
+	for(int i=0; i<count; i++){
+		if(p[i].price == -1)continue;
+		fprintf(fp,"%s %d %d %d\n",p[i].proName,p[i].price,p[i].quant,p[i].deliver);
+	}
+	fclose(fp);
+	printf("=> 저장됨!\n");
+}
+
+int loadData(Product *p){
+	int i = 0;
+	FILE *fp;
+	fp = fopen("product.txt","rt");
+	if(fp==NULL){
+		printf("=>파일 없음\n");
+		return 0;
+	}
+	for(;i < 100; i++){
+		fscanf(fp,"%s",p[i].proName);
+        fscanf(fp,"%d",p[i].price);
+		if(feof(fp))break;
+		fscanf(fp, "%d",p[i].quant);
+		fscanf(fp, "%d",&p[i].deliver);
+	}
+	fclose(fp);
+	printf("=> 로딩 성공!\n");
+	return i;
+}
 
