@@ -37,6 +37,7 @@ int main(void){
             scanf("%d",&deletecheck);
             if(deletecheck == 1){count-=deleteProduct(&plist[no-1]);}
         }
+
         else if(menu == 5){
             saveData(plist,indexcount);
             }
