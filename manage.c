@@ -74,3 +74,34 @@ int createProduct(Product *p) {
 void readProduct(Product p) {
 	printf("%s %d %d %d\n", p.proName, p.price, p.quant, p.deliver);
 }
+
+void saveData(Product *p, int count){
+	FILE *fp;
+	fp = fopen("product.txt","wt");
+	for(int i=0; i<count; i++){
+		if(p[i].price == -1)continue;
+		fprintf(fp,"%s %d %d %d\n",p[i].proName,p[i].price,p[i].quant,p[i].deliver);
+	}
+	fclose(fp);
+	printf("=> 저장됨!\n");
+}
+
+int loadData(Product *p){
+	int i = 0;
+	FILE *fp;
+	fp = fopen("product.txt","rt");
+	if(fp==NULL){
+		printf("=>파일 없음\n");
+		return 0;
+	}
+	for(;i < 100; i++){
+		fscanf(fp,"%s",p[i].proName);
+        fscanf(fp,"%d",p[i].price);
+		if(feof(fp))break;
+		fscanf(fp, "%d",p[i].quant);
+		fscanf(fp, "%d",&p[i].deliver);
+	}
+	fclose(fp);
+	printf("=> 로딩 성공!\n");
+	return i;
+}
